@@ -34,13 +34,14 @@ function playSoundOnTouch(e) {
   key.classList.add('playing');
   audio.currentTime = 0;
   audio.play();
+ 
 }
 
 const keys = Array.from(document.querySelectorAll('.key'));
 keys.forEach((key) => {
   key.addEventListener('transitionend', removeTransition);
-  key.addEventListener('touchstart', playSoundOnTouch, false);
-  key.addEventListener('click', playSoundOnTouch);
+  key.addEventListener('touchstart', playSoundOnTouch, false); // Все равно не работает на телефоне...
+  key.addEventListener('click', playSound);
 });
 
 window.addEventListener('keydown', playSound);
